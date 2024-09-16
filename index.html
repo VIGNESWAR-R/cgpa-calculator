@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CGPA Calculator</title>
+    <style>
+        /* Base styles for all devices */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .container {
+            background-color: rgb(29, 28, 28);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: padding 0.3s ease; /* Smooth transition */
+        }
+
+        h1 {
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(63, 81, 181, 0.4);
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+            text-align: left;
+            color: #ffffff;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 1em;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            transition: padding 0.3s ease; /* Smooth transition */
+        }
+
+        input:focus, select:focus {
+            border-color: #3f51b5;
+            outline: none;
+            box-shadow: 0 0 10px rgba(63, 81, 181, 0.2);
+        }
+
+        button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #303f9f;
+        }
+
+        .semester {
+            display: none; /* Initially hidden */
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ffffff;
+        }
+
+        /* --- Responsive Styles --- */
+
+        /* For small mobile devices (up to 600px) */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                max-width: 100%; /* Use full width */
+            }
+
+            h1 {
+                font-size: 1.3em;
+                padding: 15px;
+            }
+
+            input, select, button {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+        }
+
+        /* For tablets (between 600px and 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .container {
+                padding: 30px;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                padding: 18px;
+            }
+
+            input, select, button {
+                padding: 12px;
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+
+        /* For laptops and desktops (above 1024px) */
+        @media (min-width: 1025px) {
+            .container {
+                max-width: 500px; /* Slightly larger for desktop */
+                padding: 50px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                padding: 22px;
+            }
+
+            input, select, button {
+                padding: 18px;
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CGPA Calculator</h1>
+        
+        <div>
+            <label for="year">Select Current Year:</label>
+            <select id="year" onchange="showSemesters()">
+                <option value="1">1st Year (2 semesters)</option>
+                <option value="2">2nd Year (4 semesters)</option>
+                <option value="3">3rd Year (6 semesters)</option>
+                <option value="4">4th Year (8 semesters)</option>
+            </select>
+        </div>
+        
+        <!-- Semesters Inputs -->
+        <div class="semester" id="semester1">
+            <label for="sem1">Enter Grade Points for Semester 1:</label>
+            <input type="number" id="sem1" placeholder="Grade Point">
+        </div>
+        <div class="semester" id="semester2">
+            <label for="sem2">Enter Grade Points for Semester 2:</label>
+            <input type="number" id="sem2" placeholder="Grade Point">
+        </div>
+        <div class="semester" id="semester3">
+            <label for="sem3">Enter Grade Points for Semester 3:</label>
+            <input type="number" id="sem3" placeholder="Grade Point">
+        </div>
+        <div class="semester" id="semester4">
+            <label for="sem4">Enter Grade Points for Semester 4:</label>
+            <input type="number" id="sem4" placeholder="Grade Point">
+        </div>
+        <div class="semester" id="semester5">
+            <label for="sem5">Enter Grade Points for Semester 5:</label>
+            <input type="number" id="sem5" placeholder="Grade Point">
+        </div>
+        <div class="semester" id="semester6">
+            <label for="sem6">Enter Grade Points for Semester 6:</label>
+            <input type="number" id="sem6" placeholder="Grade Point">
+        </div>
+        <div class="semester" id="semester7">
+            <label for="sem7">Enter Grade Points for Semester 7:</label>
+            <input type="number" id="sem7" placeholder="Grade Point">
+        </div>
+        <div class="semester" id="semester8">
+            <label for="sem8">Enter Grade Points for Semester 8:</label>
+            <input type="number" id="sem8" placeholder="Grade Point">
+        </div>
+        
+        <div>
+            <button onclick="calculateCGPA()">Calculate CGPA</button>
+        </div>
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        // Show or hide semesters based on the selected year
+        function showSemesters() {
+            let year = document.getElementById('year').value;
+            let totalSemesters = year * 2; // Calculate how many semesters should be shown
+            
+            // Hide all semester blocks
+            for (let i = 1; i <= 8; i++) {
+                document.getElementById('semester' + i).style.display = 'none';
+            }
+
+            // Show only the completed semesters based on the year
+            for (let i = 1; i <= totalSemesters; i++) {
+                document.getElementById('semester' + i).style.display = 'block';
+            }
+        }
+
+        // Function to calculate CGPA
+        function calculateCGPA() {
+            let year = parseInt(document.getElementById('year').value);
+            let totalSemesters = year * 2;
+
+            // Initialize grade points for each semester
+            let semesters = [];
+            for (let i = 1; i <= totalSemesters; i++) {
+                let semValue = document.getElementById('sem' + i).value;
+                if (semValue) {
+                    semesters.push(parseFloat(semValue));
+                } else {
+                    semesters.push(0); // Default to 0 if no value provided
+                }
+            }
+
+            // Calculate total grade points
+            let totalGradePoints = semesters.reduce((a, b) => a + b, 0);
+
+            // Calculate CGPA
+            let cgpa = totalGradePoints / totalSemesters;
+            document.getElementById('result').innerHTML = "Your CGPA is: " + cgpa.toFixed(2);
+        }
+    </script>
+</body>
+</html>
